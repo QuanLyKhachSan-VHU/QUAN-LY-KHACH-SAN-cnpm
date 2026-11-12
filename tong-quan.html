@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng quan | Quản lý khách sạn</title>
+
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font chữ -->
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- CSS riêng -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="app-layout">
+
+    <!-- THANH MENU -->
+<aside class="sidebar">
+
+<div class="brand">
+    <div class="brand-icon">
+        <img src="images/stayflow-logo.png" alt="StayFlow Logo">
+    </div>
+
+    <div class="brand-info">
+        <h5 class="brand-name">
+            <span class="brand-stay">Stay</span><span class="brand-flow">Flow</span>
+        </h5>
+        <span class="brand-subtitle">QUẢN LÝ KHÁCH SẠN</span>
+    </div>
+</div>
+
+
+        <div class="menu-label">MENU CHÍNH</div>
+
+        <nav class="menu">
+            <a href="tong-quan.html" class="menu-item active">
+                <span class="menu-icon">▦</span>
+                <span>Tổng quan</span>
+            </a>
+
+            <a href="quan-ly-phong.html" class="menu-item">
+                <span class="menu-icon">▤</span>
+                <span>Quản lý phòng</span>
+            </a>
+
+            <a href="khach-hang.html" class="menu-item">
+                <span class="menu-icon">♙</span>
+                <span>Khách hàng</span>
+            </a>
+
+            <a href="dat-phong.html" class="menu-item">
+                <span class="menu-icon">▣</span>
+                <span>Đặt phòng</span>
+            </a>
+
+            <a href="nhan-tra-phong.html" class="menu-item">
+                <span class="menu-icon">⇄</span>
+                <span>Nhận / Trả phòng</span>
+            </a>
+
+            <a href="dich-vu.html" class="menu-item">
+                <span class="menu-icon">◇</span>
+                <span>Dịch vụ</span>
+            </a>
+
+            <a href="nhan-vien.html" class="menu-item">
+                <span class="menu-icon">♧</span>
+                <span>Nhân viên</span>
+            </a>
+
+            <a href="hoa-don.html" class="menu-item">
+                <span class="menu-icon">▧</span>
+                <span>Hóa đơn</span>
+            </a>
+
+            <a href="doanh-thu.html" class="menu-item">
+                <span class="menu-icon">▥</span>
+                <span>Doanh thu</span>
+            </a>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="support-box">
+                <div class="support-icon">?</div>
+                <div>
+                    <strong>Cần hỗ trợ?</strong>
+                    <p>Liên hệ quản trị viên</p>
+                </div>
+            </div>
+            <div class="sidebar-version">StayFlow · Phiên bản 1.0</div>
+        </div>
+    </aside>
+
+    <!-- KHU VỰC NỘI DUNG -->
+    <main class="main-area">
+
+        <!-- THANH TRÊN -->
+        <header class="topbar">
+            <div class="breadcrumb-text">
+                Trang chủ <span>/</span> <strong>Tổng quan</strong>
+            </div>
+
+            <div class="topbar-right">
+                <div class="today-label" id="todayDate"></div>
+
+                <button class="icon-button" type="button" title="Thông báo">
+                    ♧
+                    <span class="notification-dot"></span>
+                </button>
+
+                <div class="user-profile">
+                    <div class="avatar">QL</div>
+                    <div class="user-info">
+                         <strong id="userName">Quản lý</strong>
+                         <span id="userRole">Quản trị viên</span>
+                    </div>
+                </div>
+            </div>
+            <button onclick="dangXuat()" class="btn btn-danger">
+    <i class="bi bi-box-arrow-right"></i>
+    Đăng xuất
+</button>
+        </header>
+
+        <!-- NỘI DUNG CHÍNH -->
+        <section class="dashboard-content">
+
+            <div class="page-heading">
+                <div>
+                    <h1>Tổng quan</h1>
+                    <p>Chào mừng bạn đến với hệ thống quản lý khách sạn.</p>
+                </div>
+            </div>
+
+            <!-- THỐNG KÊ -->
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-title">Tổng số phòng</span>
+                        <div class="stat-icon blue">▤</div>
+                    </div>
+                    <div class="stat-number" id="tongPhong">0</div>
+                    <div class="stat-description" id="moTaTongPhong">Tổng số phòng trong khách sạn</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-title">Phòng trống</span>
+                        <div class="stat-icon green">✓</div>
+                    </div>
+                    <div class="stat-number" id="phongTrong">0</div>
+                    <div class="stat-description">Sẵn sàng đón khách</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-title">Đang sử dụng</span>
+                        <div class="stat-icon orange">♙</div>
+                    </div>
+                    <div class="stat-number" id="phongDangDung">0</div>
+                    <div class="stat-description">Phòng đang có khách lưu trú</div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-top">
+                        <span class="stat-title">Đã đặt</span>
+                        <div class="stat-icon purple">◷</div>
+                    </div>
+                    <div class="stat-number" id="phongDaDat">0</div>
+                    <div class="stat-description">Phòng đã được đặt trước</div>
+                </div>
+
+            </div>
+
+            <div class="page-footer">
+                © 2026 StayFlow · Hệ thống quản lý khách sạn
+            </div>
+
+        </section>
+    </main>
+</div>
+
+<!-- HIỂN THỊ NGÀY -->
+<script>
+    const todayDate = document.getElementById("todayDate");
+
+    if (todayDate) {
+        todayDate.textContent = new Intl.DateTimeFormat("vi-VN", {
+            weekday: "long",
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric"
+        }).format(new Date());
+    }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Kiểm tra đăng nhập và JWT -->
+<script src="js/auth.js"></script>
+
+<!-- Kiểm tra người dùng đã đăng nhập -->
+<script>
+    kiemTraDangNhap();
+</script>
+
+<!-- Các chức năng giao diện -->
+<script src="js/main.js"></script>
+<script src="js/tong-quan.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const userData = localStorage.getItem("stayflow_user");
+
+    if (!userData) return;
+
+    try {
+        const user = JSON.parse(userData);
+
+        const nameElement = document.getElementById("userName");
+        const roleElement = document.getElementById("userRole");
+
+        if (nameElement) {
+            nameElement.textContent =
+                user.ho_ten || user.ten_dang_nhap;
+        }
+
+        if (roleElement) {
+            roleElement.textContent =
+                user.ten_vai_tro || "Chưa xác định";
+        }
+
+    } catch (error) {
+        console.error("Lỗi đọc thông tin tài khoản:", error);
+    }
+});
+</script>
+</body>
+</html>
